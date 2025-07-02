@@ -1,0 +1,1 @@
+alert("Don't copy any viedoes and post anywhere")
