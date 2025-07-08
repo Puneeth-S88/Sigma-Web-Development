@@ -1,0 +1,5 @@
+body{
+    background-color: rgb(25, 231, 231);
+    background-image: -moz-linear-gradient();
+    backface-visibility: visible;
+}
