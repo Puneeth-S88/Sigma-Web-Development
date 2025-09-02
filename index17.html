@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Slectors.</title>
+    <style>
+      /* Element selector*/
+      div {
+        background-color: crimson;
+      }
+      .pink {
+        background-color: brown;
+      }
+      #green {
+        background-color: green;
+      }
+      div > p {
+        color: blue;
+        background-color: bisque;
+      }
+      div > p {
+        color: blue;
+        background-color: bisque;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      a:link{
+        color:blueviolet
+      }
+      a:visited{
+        color:yellowgreen
+      }
+      a:active{
+        /* color:aqua */
+        background-color: black;
+      }
+      a:hover{
+        background-color: cornflowerblue;
+      }
+      p:first-child{
+        background-color: chartreuse;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+        i am a selector
+    </div>
+    <div>
+      I am a div.
+      <p>i am a opara inside a div</p>
+    </div>
+    <div class="pink">I am another div</div>
+    <a href="https://www.google.com"> Google</a>
+    <a href="https://www.facebook2.com"> facebook2</a>
+  </body>
+</html>
