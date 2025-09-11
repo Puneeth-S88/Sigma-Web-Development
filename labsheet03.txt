@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+</head>
+<body bgcolor="Lightskyblue">
+<center><img src="image/PU Logo.png"/>
+<h1>Symposium Event Registration </h1></center>
+<hr width="100%" color="red" size="5px" align="left"/>
+<h2 align="center">Registration Form</h2>
+<form action="Welcome.html" method="post">
+<fieldset><b>
+<table border="0" align="center" height="400">
+<tr>
+<td><label for="name">Name:</label></td>
+<td><input id="name" maxlength="50" name="name" type="text"/></td>
+</tr>
+<tr>
+<td><label for="branch">Branch:</label></td>
+<td><input id="branch" maxlength="50" name="branch" type="text"/></td>
+</tr>
+<tr>
+<td><label for="institution">Institution:</label></td>
+<td><input id="institution" maxlength="50" name="institution" type="text"/></td>
+</tr>
+<tr>
+<td><label for="mailaddress">E-mail address:</label></td>
+<td><input id="email" maxlength="50" name="mailaddress" type="email"/></td>
+</tr>
+<tr>
+<td><label for="mobile">Mobile number:</label></td>
+<td><input id="number" maxlength="50" name="mobile" type="text"/></td>
+</tr>
+<tr>
+<td><label for="address">Address:</label></td>
+<td valign="middle" align="center"><textarea id="address" name="address" rows="4" cols="30"></textarea></td>
+</tr>
+<tr>
+<td><label for="state">State:</label></td>
+<td><input id="state" maxlength="50" name="state" type="text"/></td>
+</tr>
+<tr>
+<td><label for="date">DOB:</label></td>
+<td><input id="date" maxlength="50" name="date" type="date"/></td>
+</tr>
+<tr>
+<td><label for="gender">Gender:</label></td>
+<td>
+<input id="male" name="gender" type="radio" value="Male"/>Male
+<input id="female" name="gender" type="radio" value="Female"/>Female
+</td>
+</tr>
+<tr>
+<td><label for="events">Events:</label></td>
+<td>
+<select id="events" name="events">
+<option>Paper Presentation</option>
+<option>Project Expo</option>
+<option>Code Debugging</option>
+<option>Quiz</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+<input name="submit" type="submit" value="Submit"/>
+<input name="reset" type="reset" value="Reset"/>
+</td>
+</tr>
+</table></b>
+</fieldset>
+</form>
+</body>
+</html>
