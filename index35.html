@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More on css selectors.</title>
+    <style>
+      .box:second-child {
+        background-color: aqua;
+      }
+      .box::first-line {
+        color: blueviolet;
+      }
+      .boxes * {
+        color: blue;
+        border: 3px solid gray;
+        padding: 3px;
+      }
+      .box::first-letter{
+        color:rgb(219, 12, 46);
+        font-style: italic;
+        font-size: x-large;
+      }
+      .box:nth-child(odd){
+        background-color: aquamarine;
+      }
+      .boxes:after{
+        content:"You will be the good web developer";
+        color:chocolate
+      }
+      ::selectionP{
+        background-color: crimson;
+        color:darkslategrey
+      }
+      input::placeholder{
+        color:rgb(20, 102, 75)
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxes">
+      <div class="box">
+        Hey i am a box Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Earum, doloremque?
+      </div>
+      <div class="box">
+        Hey i am a box Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Nobis, placeat?
+      </div>
+      <div class="box">
+        Hey i am a box Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Voluptatum, excepturi?
+      </div>
+    </div>
+    <input type="text" placeholder="How was this life!!!!"
+  </body>
+</html>
