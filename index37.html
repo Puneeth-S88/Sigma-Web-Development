@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Layout — HTML & CSS</title>
+  <style>
+    /* ===== Base / Reset ===== */
+    :root{
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --accent: #0b63a6;
+      --muted: #64748b;
+      --glass: rgba(11,99,166,0.08);
+      --radius: 12px;
+      --gap: 18px;
+      --max-width: 1100px;
+      --shadow: 0 6px 18px rgba(11,99,166,0.08);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background: linear-gradient(180deg,var(--bg),#eef6ff 60%);
+      color:#0f1724;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      justify-content:center;
+      padding:36px 20px;
+      line-height:1.45;
+    }
+
+    /* ===== Page wrapper ===== */
+    .page {
+      width:100%;
+      max-width:var(--max-width);
+      background:transparent;
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap:var(--gap);
+      align-items:start;
+    }
+
+    /* ===== Header (spans both columns) ===== */
+    header{
+      grid-column: 1 / -1;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+      border-radius: var(--radius);
+      padding:14px 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      height:44px;
+      width:44px;
+      border-radius:10px;
+      background:var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+      box-shadow: 0 6px 14px rgba(11,99,166,0.12);
+    }
+    header h1{font-size:1.05rem; letter-spacing:0.2px}
+    .search{
+      flex:1;
+      margin:0 16px;
+    }
+    .search input{
+      width:100%;
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid #e6eef7;
+      background:transparent;
+      outline:none;
+    }
+    .actions{display:flex;gap:10px;align-items:center}
+    .btn{
+      padding:8px 12px;border-radius:10px;border:none;background:var(--accent);color:#fff;font-weight:600;cursor:pointer;
+      box-shadow: 0 6px 12px rgba(11,99,166,0.12);
+    }
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(11,99,166,0.12);box-shadow:none}
+
+    /* ===== Sidebar ===== */
+    nav.sidebar{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      height:fit-content;
+      position:sticky;
+      top:28px;
+    }
+    nav .nav-group{margin-bottom:12px}
+    nav a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px;
+      border-radius:10px;
+      text-decoration:none;
+      color: #0f1724;
+      font-weight:600;
+    }
+    nav a:hover{background:var(--glass)}
+
+    /* ===== Main content ===== */
+    main{
+      background:transparent;
+      display:flex;
+      flex-direction:column;
+      gap:var(--gap);
+    }
+
+    .hero{
+      background:linear-gradient(180deg,#fff,#fcfeff);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    .hero .info{flex:1}
+    .hero h2{font-size:1.25rem;margin-bottom:6px}
+    .hero p{color:var(--muted);font-size:0.95rem}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:var(--gap);
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:16px;
+      box-shadow:0 8px 24px rgba(10,20,40,0.04);
+      min-height:110px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .card h3{font-size:1rem;margin-bottom:4px}
+    .card p{color:var(--muted);font-size:0.92rem}
+
+    /* ===== Footer (spans both columns) ===== */
+    footer{
+      grid-column:1 / -1;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 16px;
+      border-radius:10px;
+      background:rgba(255,255,255,0.9);
+      box-shadow: var(--shadow);
+    }
+    footer small{color:var(--muted)}
+
+    /* ===== Responsive ===== */
+    @media (max-width: 960px){
+      .page{grid-template-columns: 1fr; padding-bottom:36px}
+      nav.sidebar{order:2;position:relative;top:0}
+      header{flex-direction:column;align-items:stretch;gap:12px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .grid{grid-template-columns:1fr}
+      .search{display:none}
+      .logo{height:40px;width:40px}
+      .brand h1{font-size:1rem}
+      .actions .btn{padding:8px 10px;font-size:0.92rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo">PS</div>
+        <div>
+          <h1>Project Layout</h1>
+          <div style="color:var(--muted);font-size:0.88rem">A clean responsive starter</div>
+        </div>
+      </div>
+
+      <div class="search">
+        <input type="search" placeholder="Search projects, files or people…" aria-label="Search" />
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost">Docs</button>
+        <button class="btn">New</button>
+      </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" aria-label="Main navigation">
+      <div class="nav-group">
+        <a href="#">🏠 Dashboard</a>
+        <a href="#">📁 Projects</a>
+        <a href="#">🧩 Components</a>
+        <a href="#">🔒 Security</a>
+      </div>
+      <div class="nav-group" style="border-top:1px solid #eef5fb;padding-top:12px">
+        <a href="#">⚙️ Settings</a>
+        <a href="#">❓ Help</a>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="info">
+          <h2 id="hero-title">Welcome back — build something beautiful</h2>
+          <p>Use this starter layout as a base for dashboards, portfolios or admin panels. Resize the browser to see responsive behavior.</p>
+        </div>
+        <div style="min-width:180px;text-align:right">
+          <div style="font-weight:700">Today</div>
+          <div style="color:var(--muted)">Oct 27, 2025</div>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Quick stats">
+        <article class="card">
+          <h3>Overview</h3>
+          <p>Short summary of metrics, recent activity or announcements goes here.</p>
+        </article>
+
+        <article class="card">
+          <h3>Recent Projects</h3>
+          <p>List a few recent items, links or statuses. Great for quick navigation.</p>
+        </article>
+
+        <article class="card">
+          <h3>Notifications</h3>
+          <p>Messages, alerts or tasks that need attention. Keep this concise.</p>
+        </article>
+      </section>
+
+      <section class="grid" style="margin-top:6px" aria-label="Content cards">
+        <article class="card">
+          <h3>Content card A</h3>
+          <p>Detailed content, code snippet, or small table can sit inside a card.</p>
+        </article>
+
+        <article class="card">
+          <h3>Content card B</h3>
+          <p>Use these blocks to compose a dashboard layout or article listing.</p>
+        </article>
+
+        <article class="card">
+          <h3>Content card C</h3>
+          <p>Replace with charts, forms, or any interactive widget. Accessible and responsive.</p>
+        </article>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <small>Made with ♥ — Your name</small>
+      <div style="display:flex;gap:12px;align-items:center">
+        <small style="color:var(--muted)">Version 1.0</small>
+        <small style="color:var(--muted)">•</small>
+        <small style="color:var(--muted)">Contact</small>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
